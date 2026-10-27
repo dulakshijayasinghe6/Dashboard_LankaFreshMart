@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Lanka Fresh Mart sales dashboard" />
+    <title>Lanka Fresh Mart | Sales Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"
+      defer
+    ></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar container" aria-label="Main navigation">
+        <a class="brand" href="#dashboard"
+          ><span class="brand-icon" aria-hidden="true">✦</span
+          ><span
+            >Lanka<span class="brand-accent">Fresh</span
+            ><small>MART ANALYTICS</small></span
+          ></a
+        >
+        <div class="nav-links" id="navLinks">
+          <a href="#dashboard" class="nav-link active" aria-current="page"
+            >Dashboard</a
+          >
+          <a href="#sales" class="nav-link">Sales</a>
+          <a href="#reports" class="nav-link">Reports</a>
+          <a href="#settings" class="nav-link">Settings</a>
+        </div>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="icon-button"
+            aria-label="Switch to dark mode"
+            title="Toggle theme"
+          >
+            ☾
+          </button>
+          <div class="user-profile">
+            <span class="avatar">AM</span
+            ><span class="user-text"
+              ><strong>Admin Manager</strong><small>Store overview</small></span
+            >
+          </div>
+          <button
+            id="menuToggle"
+            class="icon-button hamburger"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="navLinks"
+          >
+            ☰
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="dashboard" class="container dashboard">
+      <div class="page-intro">
+        <div>
+          <span class="eyebrow">PERFORMANCE OVERVIEW</span>
+          <h1>Sales Dashboard<span class="title-dot">.</span></h1>
+          <p>Track your store performance across Sri Lanka at a glance.</p>
+        </div>
+        <div class="period-pill">
+          <span class="period-dot"></span> January – June 2026
+        </div>
+      </div>
+      <section class="kpi-grid" aria-label="Key performance indicators">
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-icon blue">LKR</span
+            ><span class="kpi-tag">6 MONTHS</span>
+          </div>
+          <p>Total Revenue</p>
+          <h2 id="totalRevenue">—</h2>
+          <span class="kpi-note">Combined monthly revenue</span>
+        </article>
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-icon violet">▦</span
+            ><span class="kpi-tag">6 MONTHS</span>
+          </div>
+          <p>Total Units Sold</p>
+          <h2 id="totalUnits">—</h2>
+          <span class="kpi-note">Products sold in total</span>
+        </article>
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-icon orange">★</span
+            ><span class="kpi-tag">TOP MONTH</span>
+          </div>
+          <p>Best Month</p>
+          <h2 id="bestMonth">—</h2>
+          <span class="kpi-note" id="bestMonthNote"
+            >Highest monthly revenue</span
+          >
+        </article>
+        <article class="kpi-card">
+          <div class="kpi-top">
+            <span class="kpi-icon teal">⌖</span
+            ><span class="kpi-tag">Q2 LEADER</span>
+          </div>
+          <p>Best Branch</p>
+          <h2 id="bestBranch">—</h2>
+          <span class="kpi-note" id="bestBranchNote"
+            >Highest Q2 branch revenue</span
+          >
+        </article>
+      </section>
+      <section id="sales" class="charts-grid" aria-label="Sales charts">
+        <article class="chart-card">
+          <div class="chart-heading">
+            <div>
+              <span class="eyebrow">MONTHLY TREND</span>
+              <h2>Revenue Performance</h2>
+              <p>Monthly revenue • LKR thousands</p>
+            </div>
+            <span class="chart-symbol">↗</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas
+              id="revenueChart"
+              role="img"
+              aria-label="Line chart showing monthly revenue from January to June"
+            ></canvas>
+          </div>
+        </article>
+        <article class="chart-card">
+          <div class="chart-heading">
+            <div>
+              <span class="eyebrow">BRANCH COMPARISON</span>
+              <h2>Q2 Branch Revenue</h2>
+              <p>April – June • LKR thousands</p>
+            </div>
+            <span class="chart-symbol">▥</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas
+              id="branchChart"
+              role="img"
+              aria-label="Bar chart comparing Q2 revenue in Colombo, Kandy and Galle"
+            ></canvas>
+          </div>
+        </article>
+      </section>
+      <section id="reports" class="insight-panel">
+        <div>
+          <span class="eyebrow">QUICK INSIGHT</span>
+          <h2>Business at a glance</h2>
+          <p id="insightText">Loading performance summary…</p>
+        </div>
+        <span class="insight-icon" aria-hidden="true">✧</span>
+      </section>
+      <section id="settings" class="settings-panel">
+        <h2>Display preferences</h2>
+        <p>
+          Use the moon or sun button in the navigation bar to switch the
+          dashboard theme.
+        </p>
+      </section>
+    </main>
+    <footer class="footer container">
+      <span>© 2026 Lanka Fresh Mart · Analytics Dashboard</span
+      ><span>Made for ITM 12022</span>
+    </footer>
+  </body>
+</html>
